@@ -42,18 +42,50 @@
 			boardWidth = $('.board').width();
 
 			// TODO 2
+			box.css ('left', position);
+			box.text (points);
+			
+			    var position;
+			    var points;
+			    var speed;
+
+    			position = 0;
+    			points = 0;
+			    speed = 10;
+			    
+		 var direction;
+    			direction = 1;	    
+			
+		box.text(points);
+		box.css('left', position);
 
 
 			// TODO 3 / 4
-			update = function() {
+			
+		update = function() {
+        	position = position + (speed * direction);
+        	if(position > boardWidth) {
+        		direction = -1;
+        	} if(position === 0) {
+        	direction = 1;
+        	}
+        	box.text(points);
+			box.css('left', position);
 
-			};
+        };
+
+
+	
 
 
 			// TODO 5 / 6
-			handleBoxClick = function() {
+		handleBoxClick = function() {
+      speed = speed + 3;
+      position = 0;
+      points = points + 1;
+    };
 
-			};
+			
 
 
 			//this calls update every 50 milliseconds
